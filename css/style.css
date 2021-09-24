@@ -1,0 +1,177 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+  font-family: 'barlow', sans-serif;
+}
+
+body {
+  background: #EEEDE7;
+}
+
+main {
+  width: 1020px;
+  margin: auto;
+}
+
+.keyboard {
+  display: grid;
+  grid-row-gap: 10px;
+  padding: 10px;
+  position: relative;
+  overflow: hidden;
+  background: #E9EAEC;
+  border: 1px solid #868B8E;
+}
+
+.keyboard__row {
+  display: grid;
+  grid-gap: 10px;
+  grid-row-gap: 10px;
+  height: 50px;
+}
+
+.keyboard__key {
+  display: flex;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #E7D2CC;
+  border: 1px solid #868B8E;
+}
+
+
+
+[data-fn="false"].active .letter,
+[data-fn="true"].active .letter {
+  transform: translateY(1px);
+  color: #fff;
+}
+
+[data-fn="true"] {
+  background: #B9B7BD;
+}
+
+[data-fn="true"] > .letter {
+  font-size: 14px;
+}
+
+[data-code="CapsLock"] {
+  width: 86px;
+}
+
+[data-code="ShiftLeft"] {
+  width: 100px;
+}
+
+[data-code="ShiftRight"] {
+  width: 120px;
+}
+
+[data-code="Enter"] {
+  width: 100px;
+}
+
+[data-code="Tab"] {
+  width: 76px;
+}
+
+[data-code="ControlLeft"] {
+  width: 76px;
+}
+
+[data-code="ControlRight"] {
+  width: 60px;
+}
+
+[data-code="Backspace"] {
+  width: 115px;
+}
+
+[data-code="Space"] {
+  width: 420px;
+}
+
+[data-code="AltLeft"],
+[data-code="AltRight"] {
+  width: 76px;
+}
+
+[data-code="ArrowLeft"],
+[data-code="ArrowUp"],
+[data-code="ArrowDown"],
+[data-code="ArrowRight"] {
+  background: #746C70;
+}
+
+
+.active {
+  background: #746C70;
+}
+
+.letter {
+  font-size: 18px;
+  width: 100%;
+  text-align: center;
+  transition: all .2s ease;
+  transform: translateX(0);
+  transform-origin: center;
+}
+
+.subtitle, .hint {
+  color: #666;
+}
+
+textarea.output {
+  resize: none;
+  width: 100%;
+  height: 200px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+
+.sub {
+  width: 100%;
+  color: #68688a;
+  text-align: left;
+  padding-left: 10px;
+  transition: all .2s ease;
+}
+
+.sub.sub-active:not(:empty) {
+  color: #000;
+  font-size: 20px;
+}
+
+.sub.sub-active:not(:empty) ~ .letter.sub-inactive {
+  color: #68688a;
+  font-size: 16px;
+  text-align: center;
+  padding-right: 10px;
+  width: 50%;
+  transform-origin: center;
+  transform: translateX(20px);
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.8);
+}
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+}
+  100% {
+    opacity: 0;
+    transform: scale(2.5);
+}
+}
